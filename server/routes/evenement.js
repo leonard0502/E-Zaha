@@ -29,6 +29,7 @@ evenementRoutes.post("/creerEvenement",async  (req, res) => {
 
 evenementRoutes.get("/getEvenement", (req, res) => {
     Evenement.find({})
+      .populate('idSite')
       .then((result) => {
         if (result.length > 0) {
           res.json(result);
@@ -45,6 +46,31 @@ evenementRoutes.get("/getEvenement", (req, res) => {
           message: "Une erreur s'est produit lors de l'obtention des Evenements!",
         });
       });
+  });
+
+  evenementRoutes.get("getEvenementByDate", (req, res) => {
+    const date = new Date(req.query.date);
+    Evenement.find({$and : [
+              { debut: { $gte: new Date(date).toISOString() } },
+              { fin: { $lte: new Date(date).toISOString() } }
+        ]})
+        .populate('idRegion')
+        .then((result) => {
+            if (result.length > 0) {
+            res.json(result);
+            } else {
+            res.json({
+                status: "ECHEC",
+                message: "Aucun Evenement",
+            });
+            }
+        })
+        .catch(() => {
+            res.json({
+            status: "ECHEC",
+            message: "Une erreur s'est produit lors de l'obtention des Evenements!",
+            });
+        });
   });
 
 module.exports = evenementRoutes;

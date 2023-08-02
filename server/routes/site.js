@@ -27,6 +27,7 @@ siteRoutes.post("/creerSite",async  (req, res) => {
 
 siteRoutes.get("/getSite", (req, res) => {
     Site.find({})
+      .populate('idRegion')
       .then((result) => {
         if (result.length > 0) {
           res.json(result);
@@ -45,4 +46,25 @@ siteRoutes.get("/getSite", (req, res) => {
       });
   });
 
+  siteRoutes.get("getSiteByIdRegion/:idRegion", (req, res) => {
+  Site.find(
+      { idRegion : {$eq : ObjectId(req.params.idRegion)}})
+      .populate('idRegion')
+      then((result) => {
+          if (result.length > 0) {
+          res.json(result);
+          } else {
+          res.json({
+              status: "ECHEC",
+              message: "Aucun Site",
+          });
+          }
+      })
+      .catch(() => {
+          res.json({
+          status: "ECHEC",
+          message: "Une erreur s'est produit lors de l'obtention des Sites!",
+          });
+      });
+});
 module.exports = siteRoutes;
