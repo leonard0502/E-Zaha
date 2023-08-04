@@ -1,0 +1,19 @@
+<resources>
+    <string name="app_name">Tourisme Madagascar</string>
+    <string name="login">Log in</string>
+    <string name="mail">Email</string>
+    <string name="mdp">Password</string>
+    <string name="registerNow">Cliquer ici pour s\'inscrir</string>
+    <string name="register">Sign up</string>
+    <string name="nom">Nom</string>
+    <string name="prenom">Prenom</string>
+    <string name="date_naissance">Date de naissance</string>
+    <string name="numero">Numero</string>
+    <string name="loginNow">Cliquer ici pour se connecter</string>
+    <string name="btn_seconnecter">Se connecter</string>
+    <string name="btn_login">Se connecter</string>
+    <string name="btn_register">S\'inscrir</string>
+    <string name="idRegion">Region</string>
+    <string name="contenu_detail_event">Contenu Detail Event</string>
+    <string name="region_detail_event">Analamanga</string>
+</resources>

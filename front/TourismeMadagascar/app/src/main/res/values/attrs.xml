@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <attr name="cornerFamily" format="enum">
+        <enum name="rounded" value="0"/>
+        <enum name="cut" value="1"/>
+    </attr>
+    <attr name="cornerSize" format="dimension"/>
+</resources>
