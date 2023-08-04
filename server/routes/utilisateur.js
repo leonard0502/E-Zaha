@@ -37,11 +37,12 @@ utilisateurRoutes.post("/login", async (req, res) => {
           maxAge: maxAge
       });
       res.status(201).json({
-        idUtilisateur:existClient._id,
-          nom: existClient.nom,
-          prenom: existClient.prenom,
-          mail: existClient.mail,
-          token: token
+        utilisateur: existClient
+        // idUtilisateur:existClient._id,
+        //   nom: existClient.nom,
+        //   prenom: existClient.prenom,
+        //   mail: existClient.mail,
+        //   token: token
       });
   } catch (error) {
       console.log(error);
@@ -90,11 +91,12 @@ utilisateurRoutes.post("/inscription", async (req, res) => {
               maxAge
           });
           res.status(201).json({
-                idUtilisateur:Utilisateur._id,
-              nom: Utilisateur.nom,
-              prenom: Utilisateur.prenom,
-              mail: Utilisateur.mail,
-              token: token
+            utilisateur: existClient
+            //     idUtilisateur:Utilisateur._id,
+            //   nom: Utilisateur.nom,
+            //   prenom: Utilisateur.prenom,
+            //   mail: Utilisateur.mail,
+            //   token: token
 
           })
       });
