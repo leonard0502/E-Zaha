@@ -24,6 +24,26 @@ regionRoutes.post("/creerRegion",async  (req, res) => {
     });
 });
 
+regionRoutes.get("/getRegionById", (req, res) => {
+  Region.find({ _id : {$eq : ObjectId(req.params.idRegion)}})
+    .then((result) => {
+      if (result.length > 0) {
+        res.json(result);
+      } else {
+        res.json({
+          status: "ECHEC",
+          message: "Aucun Region",
+        });
+      }
+    })
+    .catch(() => {
+      res.json({
+        status: "ECHEC",
+        message: "Une erreur s'est produit lors de l'obtention des Regions!",
+      });
+    });
+});
+
 regionRoutes.get("/getRegion", (req, res) => {
     Region.find({})
       .then((result) => {
