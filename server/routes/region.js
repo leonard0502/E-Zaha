@@ -25,7 +25,7 @@ regionRoutes.post("/creerRegion",async  (req, res) => {
 });
 
 regionRoutes.get("/getRegionById", (req, res) => {
-  Region.find({ _id : {$eq : ObjectId(req.params.idRegion)}})
+  Region.find({ _id : {$eq : ObjectId(req.query.idRegion)}})
     .then((result) => {
       if (result.length > 0) {
         res.json(result);
