@@ -1,7 +1,7 @@
 package com.site.tourismemadagascar.model;
 
-import com.site.tourismemadagascar.Login;
-import com.site.tourismemadagascar.Register;
+import com.site.tourismemadagascar.view.Login;
+import com.site.tourismemadagascar.view.Register;
 
 import java.util.HashMap;
 

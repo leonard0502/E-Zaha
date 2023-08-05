@@ -1,4 +1,4 @@
-package com.site.tourismemadagascar;
+package com.site.tourismemadagascar.view;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -9,6 +9,7 @@ import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.android.material.textfield.TextInputEditText;
+import com.site.tourismemadagascar.R;
 import com.site.tourismemadagascar.controller.BaseController;
 import com.site.tourismemadagascar.model.UtilisateurModel;
 
@@ -44,7 +45,6 @@ public class Login extends AppCompatActivity {
                     @Override
                     public void onResponse(Call<Login> call, Response<Login> response) {
 
-                        return null;
                     }
                     @Override
                     public void onFailure(Call<Login> call, Throwable t) {

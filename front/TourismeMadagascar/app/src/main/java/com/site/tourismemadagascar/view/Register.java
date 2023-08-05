@@ -1,26 +1,23 @@
-package com.site.tourismemadagascar;
+package com.site.tourismemadagascar.view;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.android.material.textfield.TextInputEditText;
+import com.site.tourismemadagascar.R;
 import com.site.tourismemadagascar.controller.BaseController;
 import com.site.tourismemadagascar.model.UtilisateurModel;
 
 import java.util.HashMap;
 
-import retrofit2.Call;
-import retrofit2.Callback;
-import retrofit2.Response;
-
 public class Register extends AppCompatActivity {
 
     TextInputEditText nom, prenom, date_naissance, numero, mail, mdp, idRegion;
     BaseController baseController;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,20 +38,24 @@ public class Register extends AppCompatActivity {
                 UtilisateurModel utilisateurModel = new UtilisateurModel(Register.this);
                 HashMap<String, String> map = utilisateurModel.getMapRegister();
 
-                baseController = new BaseController();
-                Call<Void> call = baseController.getRetofitInterface().executeSignUp(map);
-                call.enqueue(new Callback<Void>() {
-                    @Override
-                    public void onResponse(Call<Void> call, Response<Void> response) {
-                        Intent intent = new Intent(getApplicationContext(), Login.class);
-                        startActivity(intent);
-                        finish();
-                    }
-                    @Override
-                    public void onFailure(Call<Void> call, Throwable t) {
-                        Toast.makeText(Register.this, t.getMessage(), Toast.LENGTH_SHORT).show();
-                    }
-                });
+                Intent intent = new Intent(getApplicationContext(), ListeEvenement.class);
+                startActivity(intent);
+                finish();
+
+//                baseController = new BaseController();
+//                Call<Void> call = baseController.getRetofitInterface().executeSignUp(map);
+//                call.enqueue(new Callback<Void>() {
+//                    @Override
+//                    public void onResponse(Call<Void> call, Response<Void> response) {
+//                        Intent intent = new Intent(getApplicationContext(), Login.class);
+//                        startActivity(intent);
+//                        finish();
+//                    }
+//                    @Override
+//                    public void onFailure(Call<Void> call, Throwable t) {
+//                        Toast.makeText(Register.this, t.getMessage(), Toast.LENGTH_SHORT).show();
+//                    }
+//                });
 
 
             }
