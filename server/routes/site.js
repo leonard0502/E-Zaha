@@ -6,9 +6,11 @@ const Site = require("../models/Site");
 siteRoutes.post("/creerSite",async  (req, res) => {
   let { nom, idRegion, description, ouvert, fermer, activite } = req.body;
 
+
+  console.log(req.body);
     const newSite =  new Site({ nom: nom, idRegion : ObjectId(idRegion), 
-        description: description, ouvert : ouvert, 
-        fermer : fermer, activite : activite});
+        description: description, ouvert : new Date(ouvert), 
+        fermer : new Date(fermer), activite : activite});
   newSite
     .save()
     .then(() => {
