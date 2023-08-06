@@ -7,6 +7,7 @@ const cors = require("cors");
 app.use(cors());
 app.use("/evenement", require("./routes/evenement"));
 app.use("/region", require("./routes/region"));
+app.use("/commentaire", require("./routes/commentaire"));
 app.use("/site", require("./routes/site"));
 app.use("/utilisateur", require("./routes/utilisateur"));
 require("./db/connection");
