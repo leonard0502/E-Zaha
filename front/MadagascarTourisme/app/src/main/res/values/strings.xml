@@ -1,0 +1,16 @@
+<resources>
+    <string name="app_name">Madagascar Tourisme</string>
+    <string name="login">Login</string>
+    <string name="mail">Email</string>
+    <string name="mdp">Mot de passe</string>
+    <string name="btn_login">Se connecter</string>
+    <string name="registerNow">Inscription</string>
+    <string name="register">Inscription</string>
+    <string name="nom">Nom</string>
+    <string name="prenom">Prénom</string>
+    <string name="date_naissance">Date de naissance</string>
+    <string name="numero">Numero</string>
+    <string name="idRegion">Region</string>
+    <string name="btn_register">S\'inscrir</string>
+    <string name="loginNow">Login</string>
+</resources>

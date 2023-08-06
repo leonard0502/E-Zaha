@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+
+<ScrollView  xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/eventScrollView"
+    tools:context=".view.DetailEvenement">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/eventLinearLayout"
+        android:orientation="vertical">
+
+        <include layout="@layout/activity_header"/>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/eventContainer"
+            >
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/nom"
+                android:text="Nom du Site"
+                android:textColor="@color/purple_500"
+                android:textSize="20sp"
+                android:layout_marginStart="25dp"
+                android:layout_marginEnd="25dp"
+                android:layout_marginTop="25dp"
+                android:layout_marginBottom="10dp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/date_OF"
+                android:text="Date envenement"
+                android:textSize="16dp"
+                android:textColor="@color/lavender"
+                android:layout_marginStart="25dp"
+                android:layout_marginEnd="25dp"
+                android:layout_marginTop="10dp"
+                android:layout_below="@id/nom"
+                />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/description_site"
+                android:text="Description du site touristique"
+                android:textSize="16dp"
+                android:textColor="@color/lavender"
+                android:layout_marginStart="25dp"
+                android:layout_marginEnd="25dp"
+                android:layout_marginTop="10dp"
+                android:layout_below="@id/date_OF"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/description_evenement"
+                android:text="Description de l'evenement"
+                android:textSize="16dp"
+                android:textColor="@color/lavender"
+                android:layout_marginStart="25dp"
+                android:layout_marginEnd="25dp"
+                android:layout_marginTop="10dp"
+                android:layout_below="@id/description_site"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/activite"
+                android:text="Activite a l'evenement"
+                android:textSize="16dp"
+                android:textColor="@color/lavender"
+                android:layout_marginStart="25dp"
+                android:layout_marginEnd="25dp"
+                android:layout_marginTop="10dp"
+                android:layout_below="@id/description_evenement"/>
+
+            <com.google.android.material.imageview.ShapeableImageView
+                android:id="@+id/evenementImage"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="10dp"
+                android:layout_marginBottom="10dp"
+                android:scaleType="center"
+                android:src="@drawable/baobab"
+                app:cardCornerRadius="20sp"
+                android:layout_below="@id/activite"/>
+
+        </RelativeLayout>
+
+    </LinearLayout>
+
+</ScrollView>
+
