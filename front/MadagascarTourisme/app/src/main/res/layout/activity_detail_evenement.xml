@@ -15,13 +15,12 @@
         android:id="@+id/eventLinearLayout"
         android:orientation="vertical">
 
-        <include layout="@layout/activity_header"/>
-
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/eventContainer"
             >
+
 
             <TextView
                 android:layout_width="match_parent"

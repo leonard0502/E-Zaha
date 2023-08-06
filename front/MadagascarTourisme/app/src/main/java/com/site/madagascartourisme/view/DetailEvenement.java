@@ -1,11 +1,14 @@
 package com.site.madagascartourisme.view;
 
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.cardview.widget.CardView;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -94,6 +97,32 @@ public class DetailEvenement extends AppCompatActivity {
         startActivity(intent);
         finish();
     }
+
+
+//
+//    @Override
+//    public boolean onCreateOptionsMenu(Menu menu) {
+//        getMenuInflater().inflate(R.menu.activity_menu, menu);
+//        return true;
+//    }
+//
+//    @Override
+//    public boolean onOptionsItemSelected(MenuItem item) {
+//        int id = item.getItemId();
+//
+//        switch (id) {
+//            case R.id.notification:
+//                // Action à exécuter pour l'option 1
+//                return true;
+//
+//            case R.id.recherche:
+//                // Action à exécuter pour l'option 2
+//                return true;
+//
+//            default:
+//                return super.onOptionsItemSelected(item);
+//        }
+//    }
 
     public String getIdEvenement() {
         return idEvenement;

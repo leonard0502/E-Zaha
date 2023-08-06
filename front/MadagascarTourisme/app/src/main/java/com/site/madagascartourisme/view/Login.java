@@ -47,7 +47,7 @@ public class Login extends AppCompatActivity {
                         if (response.isSuccessful()) {
                             JsonObject responseData = response.body();
                             if (responseData != null) {
-                                Intent intent = new Intent(getApplicationContext(), ListeEvenement.class);
+                                Intent intent = new Intent(getApplicationContext(), Evenement.class);
                                 startActivity(intent);
                                 finish();
                             } else {
@@ -66,10 +66,19 @@ public class Login extends AppCompatActivity {
             }
         });
 
+
         findViewById(R.id.registerNow).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(getApplicationContext(), Inscription.class);
+                Login.this.startActivity(intent);
+                Login.this.finish();
+            }
+        });
+        findViewById(R.id.listEvenement).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getApplicationContext(), Evenement.class);
                 Login.this.startActivity(intent);
                 Login.this.finish();
             }

@@ -13,4 +13,6 @@
     <string name="idRegion">Region</string>
     <string name="btn_register">S\'inscrir</string>
     <string name="loginNow">Login</string>
+    <string name="listEvenement">Voir la liste des evenements</string>
+    <string name="default_notification_channel_id">Notification avec succes</string>
 </resources>

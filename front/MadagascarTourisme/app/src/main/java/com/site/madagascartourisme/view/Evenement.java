@@ -2,14 +2,26 @@ package com.site.madagascartourisme.view;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.cardview.widget.CardView;
+import androidx.core.app.ActivityCompat;
+import androidx.core.app.NotificationCompat;
+import androidx.core.app.NotificationManagerCompat;
+import androidx.core.content.ContextCompat;
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 
+import android.Manifest;
+import android.app.NotificationChannel;
+import android.app.NotificationManager;
+import android.app.PendingIntent;
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.graphics.drawable.Drawable;
+import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
@@ -36,6 +48,9 @@ public class Evenement extends AppCompatActivity {
 
     LinearLayout eventLinearLayout;
     BaseController baseController;
+
+    private static final String CHANNEL_ID = "channel_id";
+    private static final int NOTIFICATION_ID = 100;
 
     @Override
     protected void onStart() {
@@ -88,14 +103,14 @@ public class Evenement extends AppCompatActivity {
                         eventCardView.setOnClickListener(new View.OnClickListener() {
                             @Override
                             public void onClick(View view) {
+                                createNotificationChannel();
+                                showNotification(evenement.getSite().getNom(), evenement.getSite().getActivite());
                                 Intent intent = new Intent(Evenement.this, DetailEvenement.class);
                                 intent.putExtra("idEvenement", evenement.get_id());
                                 startActivity(intent);
                             }
                         });
-
                         eventLinearLayout.addView(eventView);
-
                     }
 
                 } else {
@@ -110,10 +125,40 @@ public class Evenement extends AppCompatActivity {
         });
     }
 
+    private void showNotification(String titre, String contenue) {
+        NotificationCompat.Builder builder = new NotificationCompat.Builder(this, CHANNEL_ID)
+                .setSmallIcon(R.drawable.baseline_notifications_active_24)
+                .setContentTitle(titre)
+                .setContentText(contenue)
+                .setPriority(NotificationCompat.PRIORITY_DEFAULT);
+
+        NotificationManagerCompat notificationManager = NotificationManagerCompat.from(this);
+        if (ActivityCompat.checkSelfPermission(this, Manifest.permission.POST_NOTIFICATIONS) != PackageManager.PERMISSION_GRANTED) {
+            // TODO: Consider calling
+            //    ActivityCompat#requestPermissions
+            // here to request the missing permissions, and then overriding
+            //   public void onRequestPermissionsResult(int requestCode, String[] permissions,
+            //                                          int[] grantResults)
+            // to handle the case where the user grants the permission. See the documentation
+            // for ActivityCompat#requestPermissions for more details.
+            return;
+        }
+        notificationManager.notify(NOTIFICATION_ID, builder.build());
+    }
+
+    private void createNotificationChannel() {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+            NotificationChannel channel = new NotificationChannel(CHANNEL_ID, "Nom du Canal", NotificationManager.IMPORTANCE_DEFAULT);
+            NotificationManager notificationManager = getSystemService(NotificationManager.class);
+            notificationManager.createNotificationChannel(channel);
+        }
+    }
+
     @Override
     public void onBackPressed() {
         Intent intent = new Intent(getApplicationContext(), Login.class);
         startActivity(intent);
         finish();
     }
+
 }
