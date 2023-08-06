@@ -48,6 +48,26 @@ evenementRoutes.get("/getEvenement", (req, res) => {
       });
   });
 
+  evenementRoutes.get("/getEvenementById", (req, res) => {
+    Evenement.find({ _id : {$eq : ObjectId(req.query.idEvenement)}})
+    .populate('idSite')
+      .then((result) => {
+        if (result.length > 0) {
+          res.json(result);
+        } else {
+          res.json({
+            status: "ECHEC",
+            message: "Aucun Evenement",
+          });
+        }
+      })
+      .catch(() => {
+        res.json({
+          status: "ECHEC",
+          message: "Une erreur s'est produit lors de l'obtention de l'evenement!",
+        });
+      });
+  });
   evenementRoutes.get("getEvenementByDate", (req, res) => {
     const date = new Date(req.query.date);
     Evenement.find({$and : [

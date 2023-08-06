@@ -50,7 +50,7 @@ siteRoutes.get("/getSite", (req, res) => {
 
   siteRoutes.get("getSiteByIdRegion/:idRegion", (req, res) => {
   Site.find(
-      { idRegion : {$eq : ObjectId(req.query.idRegion)}})
+      { idRegion : {$eq : ObjectId(req.params.idRegion)}})
       .populate('idRegion')
       then((result) => {
           if (result.length > 0) {
