@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- Base application theme for light mode -->
+    <style name="Theme.MadagascarTourisme.Light" parent="Theme.AppCompat.Light.NoActionBar">
+        <!-- Customize your light theme attributes here -->
+    </style>
+
+    <!-- Base application theme for dark mode -->
+    <style name="Theme.MadagascarTourisme.Dark" parent="Theme.AppCompat.DayNight.NoActionBar">
+        <!-- Customize your dark theme attributes here -->
+    </style>
+
+</resources>

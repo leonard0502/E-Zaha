@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+    <PreferenceCategory
+        android:title="Paramètres généraux">
+
+        <ListPreference
+            android:key="theme_preference"
+            android:title="Mode d'écran"
+            android:summary="Sélectionnez le mode d'écran"
+            android:entries="@array/theme_options"
+            android:entryValues="@array/theme_values"
+            android:defaultValue="light" />
+
+    </PreferenceCategory>
+</PreferenceScreen>
