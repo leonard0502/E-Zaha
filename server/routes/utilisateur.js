@@ -91,7 +91,7 @@ utilisateurRoutes.post("/inscription", async (req, res) => {
               maxAge
           });
           res.status(201).json({
-            utilisateur: existClient
+            utilisateur: Utilisateur
             //     idUtilisateur:Utilisateur._id,
             //   nom: Utilisateur.nom,
             //   prenom: Utilisateur.prenom,
