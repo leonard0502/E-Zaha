@@ -57,7 +57,7 @@ commentaireRoutes.get("/getCommentaireByIdEvent", (req, res) => {
     Commentaire.find({idEvenement : ObjectId(idEvenement)})
         .populate('idEvenement')
         .populate('idUtilisateur')
-        then((result) => {
+        .then((result) => {
             if (result.length > 0) {
             res.json(result);
             } else {
