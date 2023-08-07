@@ -27,6 +27,31 @@ evenementRoutes.post("/creerEvenement",async  (req, res) => {
     });
 });
 
+evenementRoutes.get("/recherche", (req, res) => {
+  res.json({
+            status: "ECHEC",
+            message: "Aucun Evenement",
+          });
+  // Evenement.find({})
+  //   .populate('idSite')
+  //   .then((result) => {
+  //     if (result.length > 0) {
+  //       res.json(result);
+  //     } else {
+  //       res.json({
+  //         status: "ECHEC",
+  //         message: "Aucun Evenement",
+  //       });
+  //     }
+  //   })
+  //   .catch(() => {
+  //     res.json({
+  //       status: "ECHEC",
+  //       message: "Une erreur s'est produit lors de l'obtention des Evenements!",
+  //     });
+  //   });
+});
+
 evenementRoutes.get("/getEvenement", (req, res) => {
     Evenement.find({})
       .populate('idSite')
