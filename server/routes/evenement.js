@@ -4,13 +4,13 @@ const evenementRoutes = express.Router();
 const Evenement = require("../models/Evenement");
 
 evenementRoutes.post("/creerEvenement",async  (req, res) => {
-  let { description, debut, fin, idSite, listeImage } = req.body;
+  let { description, debut, fin, idSite, nomImage } = req.body;
 
     const newEvenement =  new Evenement({ description: description,
         debut: new Date(debut), 
         fin: new Date(fin), 
         idSite : ObjectId(idSite), 
-        listeImage : listeImage});
+        nomImage : nomImage});
   newEvenement
     .save()
     .then(() => {
@@ -25,6 +25,31 @@ evenementRoutes.post("/creerEvenement",async  (req, res) => {
         message: "Une erreur s'est produit lors de la création de la Evenement! "+err.message,
       });
     });
+});
+
+evenementRoutes.get("/recherche", (req, res) => {
+  res.json({
+            status: "ECHEC",
+            message: "Aucun Evenement",
+          });
+  // Evenement.find({})
+  //   .populate('idSite')
+  //   .then((result) => {
+  //     if (result.length > 0) {
+  //       res.json(result);
+  //     } else {
+  //       res.json({
+  //         status: "ECHEC",
+  //         message: "Aucun Evenement",
+  //       });
+  //     }
+  //   })
+  //   .catch(() => {
+  //     res.json({
+  //       status: "ECHEC",
+  //       message: "Une erreur s'est produit lors de l'obtention des Evenements!",
+  //     });
+  //   });
 });
 
 evenementRoutes.get("/getEvenement", (req, res) => {
