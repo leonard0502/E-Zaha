@@ -4,13 +4,13 @@ const evenementRoutes = express.Router();
 const Evenement = require("../models/Evenement");
 
 evenementRoutes.post("/creerEvenement",async  (req, res) => {
-  let { description, debut, fin, idSite, listeImage } = req.body;
+  let { description, debut, fin, idSite, nomImage } = req.body;
 
     const newEvenement =  new Evenement({ description: description,
         debut: new Date(debut), 
         fin: new Date(fin), 
         idSite : ObjectId(idSite), 
-        listeImage : listeImage});
+        nomImage : nomImage});
   newEvenement
     .save()
     .then(() => {
