@@ -52,7 +52,7 @@ commentaireRoutes.get("getCommentaireByIdEventAndIdUtilisateur", (req, res) => {
         });
 });
 
-commentaireRoutes.get("getCommentaireByIdEvent", (req, res) => {
+commentaireRoutes.get("/getCommentaireByIdEvent", (req, res) => {
     const idEvenement = req.query.idEvenement;
     Commentaire.find({idEvenement : ObjectId(idEvenement)})
         .populate('idEvenement')
